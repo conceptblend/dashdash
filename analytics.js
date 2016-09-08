@@ -6,7 +6,7 @@ var google = require('googleapis');
 var gAnalytics = google.analytics('v3');
 
 // Access to GA account
-var	SERVICE_ACCOUNT_EMAIL = 'analytics@hab-dashboard.iam.gserviceaccount.com',
+var	SERVICE_ACCOUNT_EMAIL = 'XXXX@XXXX.iam.gserviceaccount.com',
 	SERVICE_ACCOUNT_KEY_FILE = __dirname + '/key.pem';
 
 var authClient = new google.auth.JWT(
