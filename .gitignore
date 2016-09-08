@@ -1,0 +1,13 @@
+# All.the.modules
+node_modules
+
+# Secret key
+key.pem
+
+# Logs
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+

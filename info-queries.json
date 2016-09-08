@@ -1,0 +1,54 @@
+{
+	"pageviews-last7days" : {
+		"meta" : {
+			"title" : "Unique Pageviews",
+			"period": "Last 7 days"
+		},
+		"key" : "ga:uniquePageviews",
+		"params" : {
+			"start-date": "7daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:uniquePageviews"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
+	},
+	"users-last7days" : {
+		"meta" : {
+			"title" : "Unique Users",
+			"period": "Last 7 days"
+		},
+		"key" : "ga:users",
+		"params" : {
+			"start-date": "7daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:users"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
+	},
+	"pageviews-last30days" : {
+		"meta" : {
+			"title" : "Unique Pageviews",
+			"period": "Last 30 days"
+		},
+		"key" : "ga:uniquePageviews",
+		"params" : {
+			"start-date": "30daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:uniquePageviews"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
+	},
+	"users-last30days" : {
+		"meta" : {
+			"title" : "Unique Users",
+			"period": "Last 30 days"
+		},
+		"key" : "ga:users",
+		"params" : {
+			"start-date": "30daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:users"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
+	}
+}

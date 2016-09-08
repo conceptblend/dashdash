@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1= title
+
+	each metric in metrics
+		p #{metric.value} #{metric.title} (#{metric.period})
+
+
+	small: em Info Template
