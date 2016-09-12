@@ -1,7 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	h1= title
+	p Welcome to #{title}
 
+	p Use `/info/path/to/page` to see analytics info for that page.
 
+	p
+		| Check out the info for  
+		a(href='/info/insights') /info/insights
