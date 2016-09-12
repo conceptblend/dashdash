@@ -55,7 +55,7 @@ router.get(/.*/, function (req, res, next) {
 						if (key == 'ga:avgTimeOnPage') {
 							var mins = Math.floor(value / 60),
 								secs = Math.round(value - mins*60);
-							value = mins.toString() + ':' + secs.toString();
+							value = mins.toString() + ':' + (secs<10 ? '0':'') + secs.toString();
 						}
 						// TODO: add transformations for other keys
 						
