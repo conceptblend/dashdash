@@ -1,10 +1,10 @@
 module.exports = {
 	serviceAccount : {
-		email : 'XXXX@XXXX.iam.gserviceaccount.com',
+		email : 'analytics@hab-dashboard.iam.gserviceaccount.com',
 		keyFilePath : __dirname + '/key.pem'
 	
 	},
 	ga : {
-		ids : ['ga:XXXXXXX']
+		ids : ['ga:91157030']
 	}
 };
