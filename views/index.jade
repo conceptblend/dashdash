@@ -2,10 +2,19 @@ extends layout
 
 block content
 	h1= title
-	p Welcome to #{title}
-
-	p Use `/info/path/to/page` to see analytics info for that page.
+	p Welcome :)
 
 	p
-		| Check out the info for  
-		a(href='/info/insights') /info/insights
+		| Use 
+		code /info/path/to/page
+		| &nbsp;to see analytics info for that page.
+
+	p Examples:
+	ul
+		li: a(href='/info/insights') /info/insights
+		li: a(href='/info/employee-experiences') /info/employee-experiences
+		li: a(href='/info/employee-portals') /info/employee-portals
+		li: a(href='/info/records-management') /info/records-management
+		li: a(href='/info/customer-portals') /info/customer-portals
+		li: a(href='/info/community-portals') /info/community-portals
+		

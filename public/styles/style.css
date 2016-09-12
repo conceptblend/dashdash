@@ -1,12 +1,13 @@
 .metric {
 	margin-top: 2em;
+	padding-top: 1em;
+	border-top: 2px solid #ddd;
 }
 
 .metric__value {
 	font-size: 2.4em;
 	font-weight: bold;
 	display: block;
-	border-top: 1px solid #ddd;
 }
 .metric__name {
 	margin: .2em 0;
