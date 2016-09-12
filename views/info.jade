@@ -1,10 +1,24 @@
 extends layout
 
 block content
-	h1= title
+	.row
+		.col-xs-12
+			h1
+				= title
+				br
+				small Page usage information
 
-	each metric in metrics
-		p #{metric.value} #{metric.title} (#{metric.period})
+	.row
+		each metric in metrics
+			.col-xs-12.col-sm-6.metric
+				strong.metric__value= metric.value
+				h4.metric__name #{metric.title}
+				small (#{metric.period})
+
+	.row
+		.col-xs-12
+			small: em Info Template
 
 
-	small: em Info Template
+block head
+	meta(name="dashdash:layout" content="info")

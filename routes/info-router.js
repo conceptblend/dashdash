@@ -19,16 +19,18 @@ router.get(/.*/, function (req, res, next) {
 	// TODO: Check for presence of req.path
 	
 	var viewData = {
-		title : 'Page usage information: '+req.path,
+		title : req.path,
 		metrics : []
 	};
 
 	// Queue up all of the reports to generate. Order matters.
 	q.allSettled([
 		analytics.getReport(infoQueries['users-last7days'], [['pagePath', req.path]]),
-		analytics.getReport(infoQueries['pageviews-last7days'], [['pagePath', req.path]]),
 		analytics.getReport(infoQueries['users-last30days'], [['pagePath', req.path]]),
-		analytics.getReport(infoQueries['pageviews-last30days'], [['pagePath', req.path]])
+		analytics.getReport(infoQueries['pageviews-last7days'], [['pagePath', req.path]]),
+		analytics.getReport(infoQueries['pageviews-last30days'], [['pagePath', req.path]]),
+		analytics.getReport(infoQueries['avgTimeOnPage-last7days'], [['pagePath', req.path]]),
+		analytics.getReport(infoQueries['avgTimeOnPage-last30days'], [['pagePath', req.path]])
 	]).then(
 		function(results) { // fulfilled
 			results.forEach(function (result) {
@@ -48,12 +50,20 @@ router.get(/.*/, function (req, res, next) {
 						 * ^ remove
 						 *
 						 **/
-						var totalPageviews = data.totalsForAllResults[key];
+						var value = data.totalsForAllResults[key];
+						
+						if (key == 'ga:avgTimeOnPage') {
+							var mins = Math.floor(value / 60),
+								secs = Math.round(value - mins*60);
+							value = mins.toString() + ':' + secs.toString();
+						}
+						// TODO: add transformations for other keys
+						
 
 						// Add the metric details to the viewData for rendering later
 						viewData.metrics.push({
 							title : meta.title,
-							value : totalPageviews,
+							value : value,
 							period : meta.period
 						});
 					} else { // rejected

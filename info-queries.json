@@ -50,5 +50,31 @@
 			"metrics": ["ga:users"],
 			"filters": ["ga:pagePath==%pagePath%"]
 		}
+	},
+	"avgTimeOnPage-last7days" : {
+		"meta" : {
+			"title" : "Avg. Time on Page",
+			"period": "Last 7 days"
+		},
+		"key" : "ga:avgTimeOnPage",
+		"params" : {
+			"start-date": "7daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:avgTimeOnPage"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
+	},
+	"avgTimeOnPage-last30days" : {
+		"meta" : {
+			"title" : "Avg. Time on Page",
+			"period": "Last 30 days"
+		},
+		"key" : "ga:avgTimeOnPage",
+		"params" : {
+			"start-date": "30daysAgo",
+			"end-date": "yesterday",
+			"metrics": ["ga:avgTimeOnPage"],
+			"filters": ["ga:pagePath==%pagePath%"]
+		}
 	}
 }

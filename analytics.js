@@ -4,10 +4,11 @@
 var q = require('q');
 var google = require('googleapis');
 var gAnalytics = google.analytics('v3');
+var config = require('./config.js')
 
 // Access to GA account
-var	SERVICE_ACCOUNT_EMAIL = 'XXXX@XXXX.iam.gserviceaccount.com',
-	SERVICE_ACCOUNT_KEY_FILE = __dirname + '/key.pem';
+var	SERVICE_ACCOUNT_EMAIL = config.serviceAccount.email,
+	SERVICE_ACCOUNT_KEY_FILE = config.serviceAccount.keyFilePath;
 
 var authClient = new google.auth.JWT(
 	SERVICE_ACCOUNT_EMAIL,
@@ -34,7 +35,7 @@ analytics.getReport = function (queryData, opt_replaceTokens) {
 	query.auth = authClient;
 	
 	// TODO: make this an ENV variable for easy transference to other properties.
-	query.ids = 'ga:XXXXXXXX';
+	query.ids = config.ga.ids.join(',');
 	
 	query['start-date'] = queryParams['start-date'] || '30daysAgo';
 	query['end-date'] = queryParams['end-date'] || 'yesterday';
