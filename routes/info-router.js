@@ -82,6 +82,21 @@ router.get(/.*/, function (req, res, next) {
 		//console.log(viewData);
 		// ^ Remove
 		
+		// Caching config
+		var d = new Date(),
+			expires = new Date(d-1000).toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+			lastMod = new Date(d-5000).toISOString().replace(/T/, ' ').replace(/\..+/, '');
+		/*
+		new Date().toISOString().
+		  replace(/T/, ' ').      // replace T with a space
+		  replace(/\..+/, '')     // delete the dot and everything after
+		*/
+		res.set({
+			'Cache-Control' : 'no-cache',
+			'Expires' : expires,
+			'Last-modified' : lastMod
+		});
+		
 		// Send the captured viewData for rendering
 		res.render('info', viewData);
 	});
